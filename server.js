@@ -5,7 +5,7 @@ const cors = require('cors');
 app.use(cors());
 app.use(express.json());
 
-const emailRouter = require('./emailRoute');
+const emailRouter = require('https://clivekema-backend.onrender.com/emailRoute');
 app.use('/email', emailRouter)
 
 

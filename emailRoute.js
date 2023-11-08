@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const nodemailer = require('nodemailer')
 const { google } = require('googleapis')
-const config = require('./config.js')
+const config = require('https://clivekema-backend.onrender.com/config.js')
 const oAuth2Client = new google.auth.OAuth2(config.clientId, config.clientSecret, config.redirectUri);
 oAuth2Client.setCredentials({ refresh_token: config.refreshToken });
 
