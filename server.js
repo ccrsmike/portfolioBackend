@@ -16,7 +16,7 @@ app.use((err, req, res, next) => {
     res.status(500).json({ error: 'Something went wrong!' });
 });
 
-const port = process.env.PORT || 3001; // Use the PORT environment variable if available
+const port = process.env.PORT || 5000; // Use the PORT environment variable if available
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });
