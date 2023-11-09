@@ -1,4 +1,4 @@
 package-lock.json
 index.html
 .env
-node_modules/*
+node_modules/
