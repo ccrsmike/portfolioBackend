@@ -1,14 +1,4 @@
 {
-  "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^4.18.2",
-    "googleapis": "^128.0.0",
-    "nodemailer": "^6.9.7"
-  },
-  "devDependencies": {
-    "dotenv": "^16.3.1",
-    "nodemon": "^3.0.1"
-  },
   "name": "portfoliobackend",
   "version": "1.0.0",
   "main": "server.js",
@@ -26,5 +16,15 @@
     "url": "https://github.com/ccrsmike/portfolioBackend/issues"
   },
   "homepage": "https://github.com/ccrsmike/portfolioBackend#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "googleapis": "^128.0.0",
+    "nodemailer": "^6.9.7"
+  },
+  "devDependencies": {
+    "dotenv": "^16.3.1",
+    "nodemon": "^3.0.1"
+  }  
 }
