@@ -1,20 +1,28 @@
+const dotenv = require('dotenv');
+dotenv.config();
 const express = require('express');
 const router = express.Router();
 const nodemailer = require('nodemailer')
 const { google } = require('googleapis')
-const config = require('/config.js')
-const oAuth2Client = new google.auth.OAuth2(config.clientId, config.clientSecret, config.redirectUri);
-oAuth2Client.setCredentials({ refresh_token: config.refreshToken });
+
+const clientId = process.env.CLIENT_ID;
+const clientSecret = process.env.CLIENT_SECRET;
+const redirectUri = process.env.REDIRECT_URI;
+const refreshToken = process.env.REFRESH_TOKEN;
+const user = process.env.MY_EMAIL;
+
+const oAuth2Client = new google.auth.OAuth2(clientId, clientSecret, redirectUri);
+oAuth2Client.setCredentials({ refresh_token: refreshToken });
 
 // Create the transport object
 const transport = nodemailer.createTransport({
     service: 'gmail',
     auth: {
         type: 'OAuth2',
-        user: config.userEmail,
-        clientId: config.clientId,
-        clientSecret: config.clientSecret,
-        refreshToken: config.refreshToken,
+        user: user,
+        clientId: clientId,
+        clientSecret: clientSecret,
+        refreshToken: refreshToken,
         accessToken: oAuth2Client.getAccessToken(),
     },
 });
@@ -25,8 +33,8 @@ router.post('/sendMail', async (req, res) => {
 
     try {
         const mailOptions = {
-            from: config.userEmail, // Use your Gmail account here
-            to: config.userEmail, // Replace with the recipient's email address
+            from: user, // Use your Gmail account here
+            to: user, // Replace with the recipient's email address
             subject: subject,
             text: `Name: ${name}\nEmail: ${email}\nNumber: ${number}\nMessage: ${message}`,
         };
